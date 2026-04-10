@@ -4,13 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Математика с Валя Витковска</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
+      color: #1e293b;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 50px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.4rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.15rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      margin-top: 0;
+      color: #1d4ed8;
+      font-size: 1.7rem;
+    }
+
+    .intro p {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+      color: #475569;
+    }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .class-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #1e293b;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .class-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      border-color: #93c5fd;
+    }
+
+    .class-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .class-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #1d4ed8;
+    }
+
+    .class-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.98rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px 40px;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      .intro,
+      .class-card {
+        padding: 22px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Математика с Валя Витковска</h1>
-  <p>Интерактивни ресурси по математика</p>
 
-  <p><a href="8-klas/">8. клас</a></p>
-  <p><a href="9-klas/">9. клас</a></p>
-  <p><a href="10-klas/">10. клас</a></p>
+  <header>
+    <h1>Математика с Валя Витковска</h1>
+    <p>Интерактивни ресурси по математика за ученици и учители</p>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Добре дошли</h2>
+      <p>
+        Тук ще откриете интерактивни уроци, тренажори, визуализации и
+        математически ресурси, подредени по класове.
+      </p>
+    </section>
+
+    <section class="class-grid">
+      <a class="class-card" href="8-klas/">
+        <span class="icon">📘</span>
+        <h3>8. клас</h3>
+        <p>Ресурси по математика за 8. клас</p>
+      </a>
+
+      <a class="class-card" href="9-klas/">
+        <span class="icon">📗</span>
+        <h3>9. клас</h3>
+        <p>Ресурси по математика за 9. клас</p>
+      </a>
+
+      <a class="class-card" href="10-klas/">
+        <span class="icon">📙</span>
+        <h3>10. клас</h3>
+        <p>Ресурси по математика за 10. клас</p>
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    Сайт с интерактивни образователни ресурси по математика
+  </footer>
+
 </body>
 </html>
