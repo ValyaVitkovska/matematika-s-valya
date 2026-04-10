@@ -4,10 +4,233 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>8. клас</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
+      color: #1e293b;
+    }
+
+    header {
+      background-image: linear-gradient(rgba(37,99,235,0.72), rgba(124,58,237,0.72)), url("bg-8klas.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      padding: 55px 20px 45px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      opacity: 0.96;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+      margin-bottom: 30px;
+      backdrop-filter: blur(2px);
+    }
+
+    .intro h2 {
+      margin-top: 0;
+      color: #2563eb;
+      font-size: 1.6rem;
+    }
+
+    .intro p {
+      margin-bottom: 0;
+      color: #475569;
+      font-size: 1.02rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .resource-card {
+      background: rgba(255,255,255,0.94);
+      border-radius: 18px;
+      padding: 24px 18px;
+      text-decoration: none;
+      color: #1e293b;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 2px solid transparent;
+      display: block;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      border-color: #93c5fd;
+    }
+
+    .resource-card .icon {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 10px;
+      color: #2563eb;
+      font-size: 1.3rem;
+    }
+
+    .resource-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.97rem;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .back-link a {
+      display: inline-block;
+      text-decoration: none;
+      background: white;
+      color: #2563eb;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 40px;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .intro,
+      .resource-card {
+        padding: 20px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>8. клас</h1>
-  <p>Ресурси по математика за 8. клас</p>
-  <p><a href="../">Обратно към началото</a></p>
+
+  <header>
+    <h1>8. клас</h1>
+    <p>Ресурси по математика за 8. клас</p>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Избери ресурс</h2>
+      <p>
+        Тук можеш да добавяш интерактивни уроци, тренажори, игри и
+        визуализации за 8. клас.
+      </p>
+    </section>
+
+    <section class="resource-grid">
+      <a class="resource-card" href="#">
+        <span class="icon">📘</span>
+        <h3>Начален преговор</h3>
+        <p>Тук по-късно можеш да добавиш ресурсите към началния преговор.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">🧠</span>
+        <h3>Основни комбинаторни понятия</h3>
+        <p>Място за уроци, тренажори и игри по темата.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">➡️</span>
+        <h3>Вектори</h3>
+        <p>Тук можеш да поставиш ресурсите за вектори.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">📐</span>
+        <h3>Триъгълник и трапец</h3>
+        <p>Ресурси по триъгълник, медиана и трапец.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">√</span>
+        <h3>Квадратен корен</h3>
+        <p>Уроци и упражнения по квадратен корен.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">x²</span>
+        <h3>Квадратни уравнения</h3>
+        <p>Място за всички ресурси по квадратни уравнения.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">⭕</span>
+        <h3>Окръжност</h3>
+        <p>Ресурси за окръжност, ъгли и взаимно положение.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">➗</span>
+        <h3>Рационални изрази</h3>
+        <p>Тук можеш да добавиш материалите за рационални изрази.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">🔷</span>
+        <h3>Вписани и описани многоъгълници</h3>
+        <p>Ресурси по вписани и описани многоъгълници.</p>
+      </a>
+
+      <a class="resource-card" href="#">
+        <span class="icon">📋</span>
+        <h3>Годишен преговор</h3>
+        <p>Тук можеш да поставиш ресурсите за годишен преговор.</p>
+      </a>
+    </section>
+
+    <div class="back-link">
+      <a href="../">← Обратно към началото</a>
+    </div>
+  </div>
+
+  <footer>
+    Математика с Валя Витковска
+  </footer>
+
 </body>
 </html>
