@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Математика с Валя</title>
 
   <style>
     * {
@@ -28,6 +28,18 @@
       background:
         radial-gradient(circle at top, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 28%),
         linear-gradient(180deg, #f8f4ff 0%, #fdf8f3 52%, #f7fbff 100%);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     header {
@@ -74,15 +86,7 @@
       box-shadow: 0 8px 24px rgba(255,255,255,0.08);
     }
 
-    header h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2.2rem, 4.8vw, 4rem);
-      line-height: 1.08;
-      color: #24439a;
-      text-shadow: 0 2px 10px rgba(255,255,255,0.35);
-    }
-
-    header p {
+    .hero-content p {
       max-width: 760px;
       margin: 0 auto;
       font-size: 1.16rem;
@@ -373,6 +377,10 @@
         background: rgba(255,255,255,0.04);
       }
 
+      .hero-content p {
+        font-size: 0.98rem;
+      }
+
       .container {
         padding: 0 16px;
       }
@@ -407,8 +415,7 @@
       }
 
       .card p,
-      .intro-panel p,
-      header p {
+      .intro-panel p {
         font-size: 0.98rem;
       }
     }
@@ -418,7 +425,7 @@
 
   <header>
     <div class="hero-content">
-      <h1></h1>
+      <h1 class="sr-only">Математика с Валя</h1>
       <p>
         Уроци, тренажори, визуализации и интерактивни ресурси по математика,
         създадени за по-ясно, по-интересно и по-осмислено учене.
@@ -439,7 +446,7 @@
     <h2 class="section-title">Избери клас</h2>
     <section class="grades-grid">
 
-      <a class="card theme-blue" href="8klas/">
+      <a class="card theme-blue" href="8-klas/">
         <div class="card-head">
           <div class="icon-wrap" aria-hidden="true">
             <svg class="icon-svg" viewBox="0 0 24 24">
@@ -451,7 +458,7 @@
             </svg>
           </div>
           <div>
-            <span class="badge">8-клас</span>
+            <span class="badge">8. клас</span>
             <h3>Ресурси за 8. клас</h3>
           </div>
         </div>
