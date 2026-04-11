@@ -143,6 +143,24 @@
         padding: 20px 16px;
       }
     }
+    .topic-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.resource-count{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:0.85rem;
+  font-weight:600;
+  background:#e0f2fe;
+  color:#0c4a6e;
+  white-space:nowrap;
+}
   </style>
 </head>
 <body>
@@ -197,11 +215,10 @@
         <p></p>
       </a>
 
-      <a class="resource-card" href="okrazhnost/">
-        <span class="icon">⭕</span>
-        <h3>Окръжност</h3>
-        <p></p>
-      </a>
+      <a class="card" href="okrazhnost/">
+  <h2 class="topic-title">Окръжност <span class="resource-count">3 ресурса</span></h2>
+  <p>Ресурси по темата</p>
+</a>
 
       <a class="resource-card" href="#">
         <span class="icon">➗</span>
