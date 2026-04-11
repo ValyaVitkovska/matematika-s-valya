@@ -3,125 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Математика с Валя Витковска</title>
+  <title>Математика с Валя</title>
+
   <style>
     * {
       box-sizing: border-box;
     }
 
+    :root {
+      --text: #1e293b;
+      --muted: #475569;
+      --blue: #2563eb;
+      --violet: #7c3aed;
+      --panel: rgba(255,255,255,0.82);
+      --panel-border: rgba(255,255,255,0.7);
+      --shadow: 0 12px 30px rgba(109, 117, 141, 0.10);
+      --shadow-hover: 0 18px 36px rgba(109, 117, 141, 0.16);
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
-      color: #1e293b;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 28%),
+        linear-gradient(180deg, #f8f4ff 0%, #fdf8f3 52%, #f7fbff 100%);
     }
 
     header {
-      background-image: linear-gradient(rgba(29,78,216,0.70), rgba(124,58,237,0.70)), url("home-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-align: center;
-  padding: 80px 20px 70px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      background:
+        linear-gradient(rgba(59, 91, 219, 0.72), rgba(147, 51, 234, 0.60)),
+        url("hero-bg.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      padding: 74px 20px 58px;
+      box-shadow: 0 8px 24px rgba(80, 60, 140, 0.18);
     }
 
     header h1 {
-      margin: 0 0 12px;
-      font-size: 2.4rem;
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.12;
     }
 
     header p {
-      margin: 0;
-      font-size: 1.15rem;
-      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      opacity: 0.98;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1120px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
-    .intro {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    .intro-panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 30px 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .intro h2 {
-      margin-top: 0;
-      color: #1d4ed8;
+    .intro-panel h2 {
+      margin: 0 0 10px;
+      color: var(--blue);
       font-size: 1.7rem;
     }
 
-    .intro p {
-      margin-bottom: 0;
-      font-size: 1.05rem;
-      color: #475569;
+    .intro-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      max-width: 860px;
+      margin-inline: auto;
     }
 
-    .class-grid {
+    .section-title {
+      margin: 0 0 18px;
+      padding-left: 4px;
+      color: var(--blue);
+      font-size: 1.45rem;
+      font-weight: 800;
+    }
+
+    .grades-grid,
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 22px;
     }
 
-    .class-card {
-      background: white;
-      border-radius: 18px;
-      padding: 28px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: #1e293b;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 2px solid transparent;
+    .grades-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-bottom: 38px;
     }
 
-    .class-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-      border-color: #93c5fd;
+    .features-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 38px;
     }
 
-    .class-card .icon {
-      font-size: 2.4rem;
-      margin-bottom: 12px;
+    .card {
+      --hover-tint: rgba(219, 234, 254, 0.72);
+      --hover-border: #93c5fd;
+
       display: block;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.80);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .class-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--hover-tint) 0%, transparent 34%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--hover-border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, var(--hover-tint) 100%);
+    }
+
+    .card-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.65),
+        0 10px 20px rgba(0,0,0,0.10);
+    }
+
+    .icon-svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.28rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #334155;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .card-footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .card-footer svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover .card-footer svg {
+      transform: translateX(3px);
+    }
+
+    .theme-blue {
+      --hover-tint: rgba(219, 234, 254, 0.86);
+      --hover-border: #93c5fd;
+    }
+
+    .theme-blue .icon-wrap {
+      background: linear-gradient(135deg, #dbeafe, #c7d2fe);
+      color: #2563eb;
+    }
+
+    .theme-blue .badge {
+      background: rgba(219, 234, 254, 0.96);
       color: #1d4ed8;
     }
 
-    .class-card p {
-      margin: 0;
-      color: #64748b;
-      font-size: 0.98rem;
+    .theme-blue h3,
+    .theme-blue .card-footer {
+      color: #2563eb;
+    }
+
+    .theme-violet {
+      --hover-tint: rgba(237, 233, 254, 0.88);
+      --hover-border: #c4b5fd;
+    }
+
+    .theme-violet .icon-wrap {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      color: #7c3aed;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.65),
+        0 10px 20px rgba(124, 58, 237, 0.12);
+    }
+
+    .theme-violet .badge {
+      background: rgba(237, 233, 254, 0.96);
+      color: #6d28d9;
+    }
+
+    .theme-violet h3,
+    .theme-violet .card-footer {
+      color: #7c3aed;
+    }
+
+    .theme-cyan {
+      --hover-tint: rgba(207, 250, 254, 0.88);
+      --hover-border: #67e8f9;
+    }
+
+    .theme-cyan .icon-wrap {
+      background: linear-gradient(135deg, #cffafe, #a5f3fc);
+      color: #0891b2;
+    }
+
+    .theme-cyan .badge {
+      background: rgba(207, 250, 254, 0.96);
+      color: #0e7490;
+    }
+
+    .theme-cyan h3,
+    .theme-cyan .card-footer {
+      color: #0891b2;
+    }
+
+    .theme-green {
+      --hover-tint: rgba(220, 252, 231, 0.88);
+      --hover-border: #86efac;
+    }
+
+    .theme-green .icon-wrap {
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      color: #16a34a;
+    }
+
+    .theme-green .badge {
+      background: rgba(220, 252, 231, 0.96);
+      color: #15803d;
+    }
+
+    .theme-green h3,
+    .theme-green .card-footer {
+      color: #16a34a;
+    }
+
+    .cta-panel {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 30px 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      text-align: center;
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 1.55rem;
+    }
+
+    .cta-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(88, 74, 170, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(88, 74, 170, 0.28);
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px 40px;
-      color: #475569;
+      padding: 30px 20px 42px;
+      color: #5b6477;
       font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.9rem;
+    @media (max-width: 700px) {
+      header {
+        padding: 58px 18px 42px;
       }
 
-      .intro,
-      .class-card {
-        padding: 22px 16px;
+      .container {
+        padding: 0 16px;
+      }
+
+      .intro-panel,
+      .cta-panel,
+      .card {
+        border-radius: 22px;
+      }
+
+      .intro-panel,
+      .cta-panel {
+        padding: 22px 18px;
+      }
+
+      .card {
+        padding: 20px 18px;
+      }
+
+      .icon-wrap {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+        border-radius: 16px;
+      }
+
+      .icon-svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .card h3 {
+        font-size: 1.12rem;
+      }
+
+      .card p,
+      .intro-panel p {
+        font-size: 0.98rem;
       }
     }
   </style>
@@ -129,42 +414,172 @@
 <body>
 
   <header>
-    <h1>Математика с Валя Витковска</h1>
-    <p>Интерактивни ресурси по математика</p>
+    <h1>Математика с Валя</h1>
+    <p>
+      Уроци, тренажори, визуализации и интерактивни ресурси по математика,
+      създадени за по-ясно, по-интересно и по-осмислено учене.
+    </p>
   </header>
 
   <div class="container">
-    <section class="intro">
+
+    <section class="intro-panel">
       <h2>Добре дошли</h2>
       <p>
-        Тук ще откриете интерактивни уроци, тренажори, визуализации и
-        математически ресурси, подредени по класове.
+        Тук ще намерите подбрани математически ресурси по класове и теми:
+        интерактивни уроци, упражнения, визуални модели и материали за преговор.
       </p>
     </section>
 
-    <section class="class-grid">
-      <a class="class-card" href="8-klas/">
-        <span class="icon">📘</span>
-        <h3>8. клас</h3>
-        <p>Ресурси по математика за 8. клас</p>
+    <h2 class="section-title">Избери клас</h2>
+    <section class="grades-grid">
+
+      <a class="card theme-blue" href="8klas/">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M12 4v16"></path>
+              <path d="M5 8h14"></path>
+              <path d="M5 16h14"></path>
+              <path d="M7 4h10"></path>
+              <path d="M7 20h10"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">8. клас</span>
+            <h3>Ресурси за 8. клас</h3>
+          </div>
+        </div>
+        <p>Теми, уроци и интерактивни ресурси по основните раздели от учебното съдържание за 8. клас.</p>
+        <span class="card-footer">
+          Отвори раздела
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 6l6 6-6 6"></path>
+          </svg>
+        </span>
       </a>
 
-      <a class="class-card" href="9-klas/">
-        <span class="icon">📗</span>
-        <h3>9. клас</h3>
-        <p>Ресурси по математика за 9. клас</p>
+      <a class="card theme-violet" href="9klas/">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M4 18l5-10 5 10z"></path>
+              <path d="M11 18l4-8 5 8z"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">9. клас</span>
+            <h3>Ресурси за 9. клас</h3>
+          </div>
+        </div>
+        <p>Геометрия, подобни триъгълници, теорема на Талес, тренажори и задачи с насочващи стъпки.</p>
+        <span class="card-footer">
+          Отвори раздела
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 6l6 6-6 6"></path>
+          </svg>
+        </span>
       </a>
 
-      <a class="class-card" href="10-klas/">
-        <span class="icon">📙</span>
-        <h3>10. клас</h3>
-        <p>Ресурси по математика за 10. клас</p>
+      <a class="card theme-cyan" href="10klas/">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3"></circle>
+              <path d="M5 19c1.5-3 4-5 7-5s5.5 2 7 5"></path>
+              <path d="M8 5h8"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">10. клас</span>
+            <h3>Ресурси за 10. клас</h3>
+          </div>
+        </div>
+        <p>Статистика, стереометрия и други теми с визуализации, въпроси за обратна връзка и упражнения.</p>
+        <span class="card-footer">
+          Отвори раздела
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 6l6 6-6 6"></path>
+          </svg>
+        </span>
       </a>
+
     </section>
+
+    <h2 class="section-title">Какво ще намериш тук</h2>
+    <section class="features-grid">
+
+      <div class="card theme-green">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M4 19l5-9 4 6 3-10 4 13"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">Визуализации</span>
+            <h3>Динамични чертежи</h3>
+          </div>
+        </div>
+        <p>Интерактивни модели и динамични конструкции за по-ясно разбиране на математическите зависимости.</p>
+      </div>
+
+      <div class="card theme-blue">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <rect x="5" y="4" width="14" height="16" rx="2"></rect>
+              <path d="M8 8h8"></path>
+              <path d="M8 12h8"></path>
+              <path d="M8 16h5"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">Упражнение</span>
+            <h3>Тренажори и задачи</h3>
+          </div>
+        </div>
+        <p>Подходящи материали за самостоятелна работа, затвърдяване и проверка на знанията.</p>
+      </div>
+
+      <div class="card theme-violet">
+        <div class="card-head">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <circle cx="7" cy="7" r="2"></circle>
+              <circle cx="17" cy="7" r="2"></circle>
+              <circle cx="12" cy="17" r="2"></circle>
+              <path d="M9 7h6"></path>
+              <path d="M8 8.5l3 6"></path>
+              <path d="M16 8.5l-3 6"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="badge">Идеи</span>
+            <h3>Уроци с изследване</h3>
+          </div>
+        </div>
+        <p>Ресурси, с които учениците могат да наблюдават, сравняват, предполагат и формулират изводи.</p>
+      </div>
+
+    </section>
+
+    <section class="cta-panel">
+      <h2>Полезно, ясно и красиво поднесено</h2>
+      <p>
+        Сайтът събира на едно място ресурси, които подпомагат разбирането,
+        активното участие и самостоятелната работа на учениците.
+      </p>
+      <a class="cta-button" href="8klas/">Започни от 8. клас</a>
+    </section>
+
   </div>
 
   <footer>
-    Сайт с интерактивни образователни ресурси по математика
+    Математика с Валя Витковска
   </footer>
 
 </body>
