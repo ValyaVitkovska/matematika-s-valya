@@ -33,15 +33,15 @@
     header {
       position: relative;
       background:
-        linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)),
+        linear-gradient(rgba(255,255,255,0.10), rgba(255,255,255,0.10)),
         url("home-bg.png");
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       background-repeat: no-repeat;
       color: #1e3a8a;
       text-align: center;
-      padding: 90px 20px 90px;
-      min-height: 560px;
+      padding: 120px 20px 92px;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,9 +54,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.10),
-        rgba(255,255,255,0.16),
-        rgba(255,255,255,0.20)
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.12)
       );
       pointer-events: none;
     }
@@ -64,17 +64,18 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 26px 30px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 28px;
-      backdrop-filter: blur(3px);
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.08);
     }
 
     header h1 {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       font-size: clamp(2.2rem, 4.8vw, 4rem);
       line-height: 1.08;
       color: #24439a;
@@ -87,8 +88,8 @@
       font-size: 1.16rem;
       line-height: 1.7;
       color: #334155;
-      font-weight: 500;
-      text-shadow: 0 1px 8px rgba(255,255,255,0.3);
+      font-weight: 600;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.28);
     }
 
     .container {
@@ -352,45 +353,6 @@
       color: #16a34a;
     }
 
-    .cta-panel {
-      background: rgba(255,255,255,0.84);
-      border: 1px solid var(--panel-border);
-      border-radius: 24px;
-      padding: 30px 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-      text-align: center;
-    }
-
-    .cta-panel h2 {
-      margin: 0 0 10px;
-      color: var(--blue);
-      font-size: 1.55rem;
-    }
-
-    .cta-panel p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .cta-button {
-      display: inline-block;
-      text-decoration: none;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-      padding: 13px 22px;
-      border-radius: 14px;
-      font-weight: 700;
-      box-shadow: 0 10px 22px rgba(88, 74, 170, 0.22);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(88, 74, 170, 0.28);
-    }
-
     footer {
       text-align: center;
       padding: 30px 20px 42px;
@@ -400,14 +362,15 @@
 
     @media (max-width: 700px) {
       header {
-        min-height: 420px;
-        padding: 56px 18px;
-        background-position: center;
+        min-height: 460px;
+        padding: 72px 18px 48px;
+        background-position: center top;
       }
 
       .hero-content {
-        padding: 20px 18px;
-        border-radius: 22px;
+        padding: 16px 14px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.04);
       }
 
       .container {
@@ -415,13 +378,11 @@
       }
 
       .intro-panel,
-      .cta-panel,
       .card {
         border-radius: 22px;
       }
 
-      .intro-panel,
-      .cta-panel {
+      .intro-panel {
         padding: 22px 18px;
       }
 
@@ -609,15 +570,6 @@
         <p>Ресурси, с които учениците могат да наблюдават, сравняват, предполагат и формулират изводи.</p>
       </div>
 
-    </section>
-
-    <section class="cta-panel">
-      <h2>Полезно, ясно и красиво поднесено</h2>
-      <p>
-        Сайтът събира на едно място ресурси, които подпомагат разбирането,
-        активното участие и самостоятелната работа на учениците.
-      </p>
-      <a class="cta-button" href="8klas/">Започни от 8. клас</a>
     </section>
 
   </div>
