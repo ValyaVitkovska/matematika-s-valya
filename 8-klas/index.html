@@ -4,24 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>8. клас</title>
-  .card-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
 
-.resource-count{
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:0.9rem;
-  font-weight:600;
-  background:#dbeafe;
-  color:#1e3a8a;
-  white-space:nowrap;
-}
   <style>
     * {
       box-sizing: border-box;
@@ -128,6 +111,33 @@
       font-size: 0.97rem;
     }
 
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .card-head h3 {
+      margin: 0;
+      color: #2563eb;
+      font-size: 1.3rem;
+      flex: 1;
+    }
+
+    .resource-count {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #dbeafe;
+      color: #1e3a8a;
+      white-space: nowrap;
+    }
+
     .back-link {
       text-align: center;
       margin-top: 35px;
@@ -160,25 +170,15 @@
       .resource-card {
         padding: 20px 16px;
       }
-    }
-    .topic-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
 
-.resource-count{
-  display:inline-block;
-  padding:4px 10px;
-  border-radius:999px;
-  font-size:0.85rem;
-  font-weight:600;
-  background:#e0f2fe;
-  color:#0c4a6e;
-  white-space:nowrap;
-}
+      .card-head {
+        justify-content: center;
+      }
+
+      .card-head h3 {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -191,9 +191,7 @@
   <div class="container">
     <section class="intro">
       <h2>Избери ресурс</h2>
-      <p>
-       
-      </p>
+      <p></p>
     </section>
 
     <section class="resource-grid">
@@ -233,13 +231,13 @@
         <p></p>
       </a>
 
-    <a class="card" href="okrazhnost/">
-  <div class="card-head">
-    <h2>Окръжност</h2>
-    <span class="resource-count">2 ресурса</span>
-  </div>
-  <p></p>
-</a>
+      <a class="resource-card" href="okrazhnost/">
+        <div class="card-head">
+          <h3>Окръжност</h3>
+          <span class="resource-count">2 ресурса</span>
+        </div>
+        <p>Ресурси по темата</p>
+      </a>
 
       <a class="resource-card" href="#">
         <span class="icon">➗</span>
