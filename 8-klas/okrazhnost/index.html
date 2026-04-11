@@ -3,88 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Окръжност</title>
-  <style>
-    .topic-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
+  <title>Окръжност | 8. клас</title>
 
-.resource-count{
-  display:inline-block;
-  padding:4px 10px;
-  border-radius:999px;
-  font-size:0.85rem;
-  font-weight:600;
-  background:#e0f2fe;
-  color:#0c4a6e;
-  white-space:nowrap;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 30%),
+        linear-gradient(180deg, #f8f4ff 0%, #fdf8f3 52%, #f7fbff 100%);
       color: #1e293b;
     }
+
     header {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background-image: linear-gradient(rgba(59, 91, 219, 0.72), rgba(147, 51, 234, 0.60));
       color: white;
       text-align: center;
-      padding: 50px 20px;
+      padding: 56px 20px 44px;
+      box-shadow: 0 8px 24px rgba(80, 60, 140, 0.18);
     }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.05rem;
+      opacity: 0.96;
+    }
+
     .container {
-      max-width: 900px;
+      max-width: 1120px;
       margin: 40px auto;
       padding: 0 20px;
     }
-    .card {
+
+    .intro {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(122, 108, 163, 0.10);
+      text-align: center;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      color: #2563eb;
+      font-size: 1.6rem;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .resources-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .lesson-card {
+      --card-accent: #2563eb;
+      --card-accent-soft: rgba(37, 99, 235, 0.10);
+      --card-border: rgba(37, 99, 235, 0.18);
+
       display: block;
-      background: white;
-      border-radius: 16px;
-      padding: 22px;
-      margin-bottom: 20px;
       text-decoration: none;
-      color: #1e293b;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      color: #0f172a;
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(255,255,255,0.74);
+      border-radius: 24px;
+      padding: 28px 28px 24px;
+      box-shadow: 0 12px 30px rgba(109, 117, 141, 0.10);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
     }
-    .card h2 {
-      margin-top: 0;
-      color: #2563eb;
+
+    .lesson-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--card-accent-soft) 0%, transparent 34%);
+      pointer-events: none;
     }
-    .back {
+
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 36px rgba(109, 117, 141, 0.16);
+      border-color: var(--card-border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, var(--card-accent-soft) 100%);
+    }
+
+    .lesson-card-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lesson-icon {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.65),
+        0 10px 20px rgba(37, 99, 235, 0.14);
+    }
+
+    .lesson-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lesson-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lesson-badge {
       display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
-      background: white;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lesson-title {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .lesson-desc {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      font-size: 1.02rem;
+      line-height: 1.58;
+      color: #334155;
+    }
+
+    .lesson-footer {
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lesson-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .lesson-link svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .lesson-card:hover .lesson-link svg {
+      transform: translateX(3px);
+    }
+
+    .circle-1 {
+      --card-accent: #2563eb;
+      --card-accent-soft: rgba(219, 234, 254, 0.86);
+      --card-border: #93c5fd;
+    }
+
+    .circle-1 .lesson-icon {
+      background: linear-gradient(135deg, #dbeafe, #c7d2fe);
       color: #2563eb;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: bold;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .circle-1 .lesson-badge {
+      background: rgba(219, 234, 254, 0.96);
+      color: #1d4ed8;
+    }
+
+    .circle-1 .lesson-title,
+    .circle-1 .lesson-link {
+      color: #2563eb;
+    }
+
+    .circle-2 {
+      --card-accent: #7c3aed;
+      --card-accent-soft: rgba(237, 233, 254, 0.88);
+      --card-border: #c4b5fd;
+    }
+
+    .circle-2 .lesson-icon {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      color: #7c3aed;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.65),
+        0 10px 20px rgba(124, 58, 237, 0.14);
+    }
+
+    .circle-2 .lesson-badge {
+      background: rgba(237, 233, 254, 0.96);
+      color: #6d28d9;
+    }
+
+    .circle-2 .lesson-title,
+    .circle-2 .lesson-link {
+      color: #2563eb;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    .back-link a {
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255,255,255,0.88);
+      color: #2563eb;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 8px 18px rgba(120, 110, 150, 0.10);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .back-link a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(120, 110, 150, 0.14);
+      background: rgba(255,255,255,0.96);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 40px;
+      color: #5b6477;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .intro {
+        padding: 22px 18px;
+      }
+
+      .lesson-card {
+        padding: 22px 18px 20px;
+        border-radius: 22px;
+      }
+
+      .lesson-card-head {
+        gap: 14px;
+      }
+
+      .lesson-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+        border-radius: 16px;
+      }
+
+      .lesson-icon svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .lesson-title {
+        font-size: 1.12rem;
+      }
+
+      .lesson-desc {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Окръжност</h1>
-    <p>Ресурси по темата</p>
+    <p>Интерактивни ресурси по математика за 8. клас</p>
   </header>
 
   <div class="container">
-    <a class="card" href="https://valyavitkovska.github.io/2okrajnosti-polojenie-dopiratelni/" target="_blank">
-      <h2>Взаимно положение на две окръжнжсти. Общи допирателни. </h2>
-      <p>Интерактивен урок с динамични чертежи за изследване на взаимното положение на две окръжности и броя на общите им допирателни.</p>
-    </a>
+    <section class="intro">
+      <h2>Избери ресурс</h2>
+      <p>Тук ще намериш уроци с динамични чертежи, визуализации и възможности за изследване на зависимости в окръжност.</p>
+    </section>
 
-    <a class="card" href=" https://valyavitkovska.github.io/okrajnost-agal/" target="_blank">
-      <h2">Окръжност и ъгъл</h2>
-      <p>Интерактивен урок с динамични чертежи за изследване на различните видове ъгли в окръжност и връзките между тях.</p>
-    </a>
+    <section class="resources-grid">
 
-    <a class="back" href="../">← Обратно към 8. клас</a>
+      <a class="lesson-card circle-1" href="vzaimno-polozhenie/">
+        <div class="lesson-card-head">
+          <div class="lesson-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="12" r="5"></circle>
+              <circle cx="15" cy="12" r="5"></circle>
+              <path d="M3 12h18"></path>
+            </svg>
+          </div>
+
+          <div class="lesson-meta">
+            <span class="lesson-badge">Интерактивен урок</span>
+            <h2 class="lesson-title">Взаимно положение на две окръжности. Общи допирателни.</h2>
+          </div>
+        </div>
+
+        <p class="lesson-desc">
+          Интерактивен урок с динамични чертежи за изследване на взаимното положение на две окръжности и броя на общите им допирателни.
+        </p>
+
+        <div class="lesson-footer">
+          <span class="lesson-link">
+            Отвори ресурса
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="M13 6l6 6-6 6"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="lesson-card circle-2" href="okrazhnost-i-agal/">
+        <div class="lesson-card-head">
+          <div class="lesson-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="7"></circle>
+              <path d="M12 12l5-2"></path>
+              <path d="M12 12l3.5 4"></path>
+            </svg>
+          </div>
+
+          <div class="lesson-meta">
+            <span class="lesson-badge">Интерактивен урок</span>
+            <h2 class="lesson-title">Окръжност и ъгъл</h2>
+          </div>
+        </div>
+
+        <p class="lesson-desc">
+          Интерактивен урок с динамични чертежи за изследване на различните видове ъгли в окръжност и връзките между тях.
+        </p>
+
+        <div class="lesson-footer">
+          <span class="lesson-link">
+            Отвори ресурса
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="M13 6l6 6-6 6"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </section>
+
+    <div class="back-link">
+      <a href="../">← Обратно към 8. клас</a>
+    </div>
   </div>
+
+  <footer>
+    Математика с Валя Витковска
+  </footer>
+
 </body>
 </html>
