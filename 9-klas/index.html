@@ -590,7 +590,7 @@
         </span>
       </a>
 
-      <a class="resource-card theme-blue" href="ratsionalni-neravenstva/">
+      <a class="resource-card theme-blue" href="ratsionalni-neravenstva/" data-count-from="ratsionalni-neravenstva/">
         <div class="icon-wrap" aria-hidden="true">
           <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M8 7h8"></path>
@@ -601,7 +601,7 @@
         <span class="badge">Неравенства</span>
         <h3>Рационални неравенства</h3>
         <p>Линейни, квадратни и дробни неравенства с метода на интервалите.</p>
-        <span class="resource-count">3 ресурса</span>
+        <span class="resource-count">Зареждане...</span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -663,6 +663,39 @@
   <footer>
     Математика с Валя Витковска
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const cards = document.querySelectorAll(".resource-card[data-count-from]");
+
+      function formatCount(count) {
+        return count === 1 ? "1 ресурс" : count + " ресурса";
+      }
+
+      for (const card of cards) {
+        const url = card.getAttribute("data-count-from");
+        const countEl = card.querySelector(".resource-count");
+
+        if (!url || !countEl) continue;
+
+        try {
+          const response = await fetch(url, { cache: "no-store" });
+          if (!response.ok) throw new Error("Неуспешно зареждане на " + url);
+
+          const html = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+
+          const count = doc.querySelectorAll(".resource-grid .resource-card").length;
+
+          countEl.textContent = formatCount(count);
+        } catch (error) {
+          countEl.textContent = "Няма данни";
+          console.error("Грешка при броене на ресурси:", error);
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
