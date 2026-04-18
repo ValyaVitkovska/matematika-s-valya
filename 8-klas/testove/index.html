@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тестове – 8. клас</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 32%),
+        linear-gradient(180deg, #f8f4ff 0%, #fdf8f3 52%, #f7fbff 100%);
+      color: #1e293b;
+    }
+
+    header {
+      background-image: linear-gradient(rgba(16, 185, 129, 0.78), rgba(37, 99, 235, 0.60));
+      color: white;
+      text-align: center;
+      padding: 52px 20px 42px;
+      box-shadow: 0 8px 24px rgba(80, 60, 140, 0.18);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.1rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.02rem;
+      opacity: 0.97;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(122, 108, 163, 0.10);
+      text-align: center;
+      margin-bottom: 30px;
+      backdrop-filter: blur(8px);
+    }
+
+    .intro h2 {
+      margin: 0;
+      color: #059669;
+      font-size: 1.5rem;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .test-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 22px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 24px rgba(120, 110, 150, 0.10);
+      backdrop-filter: blur(10px);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-align: center;
+    }
+
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(110, 98, 146, 0.14);
+      border-color: #a7f3d0;
+    }
+
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 14px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      color: #059669;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.55),
+        0 8px 18px rgba(0,0,0,0.10);
+    }
+
+    .icon-svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .test-card h3 {
+      margin: 0 0 10px;
+      color: #2563eb;
+      font-size: 1.08rem;
+      line-height: 1.3;
+    }
+
+    .test-card p {
+      margin: 0 0 16px;
+      color: #475569;
+      font-size: 0.97rem;
+      line-height: 1.45;
+      min-height: 44px;
+    }
+
+    .pdf-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #10b981, #2563eb);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pdf-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(37, 99, 235, 0.24);
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    .back-link a {
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255,255,255,0.88);
+      color: #2563eb;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 8px 18px rgba(120, 110, 150, 0.10);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .back-link a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(120, 110, 150, 0.14);
+      background: rgba(255,255,255,0.96);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 40px;
+      color: #5b6477;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      .intro,
+      .test-card {
+        padding: 18px 14px;
+      }
+
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Тестове – 8. клас</h1>
+    <p>Примерни тестове, контролни работи и материали за подготовка</p>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Избери материал</h2>
+    </section>
+
+    <section class="test-grid">
+
+      <div class="test-card">
+        <div class="icon-wrap">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+            <path d="M8 7h8"></path>
+            <path d="M8 11h8"></path>
+            <path d="M8 15h5"></path>
+          </svg>
+        </div>
+        <h3>Примерен тест 1</h3>
+        <p>Тест за упражнение по избрана тема от учебното съдържание.</p>
+        <a class="pdf-btn" href="primeren-test-1.pdf" target="_blank">Отвори PDF</a>
+      </div>
+
+      <div class="test-card">
+        <div class="icon-wrap">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+            <path d="M8 7h8"></path>
+            <path d="M8 11h8"></path>
+            <path d="M8 15h5"></path>
+          </svg>
+        </div>
+        <h3>Примерен тест 2</h3>
+        <p>Допълнителен тест за самостоятелна работа и подготовка.</p>
+        <a class="pdf-btn" href="primeren-test-2.pdf" target="_blank">Отвори PDF</a>
+      </div>
+
+      <div class="test-card">
+        <div class="icon-wrap">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+            <path d="M8 7h8"></path>
+            <path d="M8 11h8"></path>
+            <path d="M8 15h5"></path>
+          </svg>
+        </div>
+        <h3>Контролна работа 1</h3>
+        <p>Контролна работа за проверка на знанията по изучаван материал.</p>
+        <a class="pdf-btn" href="kontrolna-rabota-1.pdf" target="_blank">Отвори PDF</a>
+      </div>
+
+      <div class="test-card">
+        <div class="icon-wrap">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+            <path d="M8 7h8"></path>
+            <path d="M8 11h8"></path>
+            <path d="M8 15h5"></path>
+          </svg>
+        </div>
+        <h3>Преговорен тест</h3>
+        <p>Материал за обобщение и преговор преди контролна работа.</p>
+        <a class="pdf-btn" href="pregovoren-test.pdf" target="_blank">Отвори PDF</a>
+      </div>
+
+    </section>
+
+    <div class="back-link">
+      <a href="../">← Обратно към 8. клас</a>
+    </div>
+  </div>
+
+  <footer>
+    Математика с Валя Витковска
+  </footer>
+
+</body>
+</html>
