@@ -142,6 +142,19 @@
       line-height: 1.3;
     }
 
+    .resource-count {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      background: rgba(219, 234, 254, 0.92);
+      color: #1e3a8a;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
     .icon-green {
       background: linear-gradient(135deg, #dcfce7, #bbf7d0);
       color: #16a34a;
@@ -275,6 +288,7 @@
           </svg>
         </div>
         <h3>Степен и логаритъм</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
       <a class="resource-card hover-violet" href="ravninni-figuri/">
@@ -285,6 +299,7 @@
           </svg>
         </div>
         <h3>Решаване на равнинни фигури</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
       <a class="resource-card hover-cyan" href="trigonometriya/">
@@ -295,6 +310,7 @@
           </svg>
         </div>
         <h3>Тригонометрия</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
       <a class="resource-card hover-orange" href="veroyatnosti/">
@@ -309,6 +325,7 @@
           </svg>
         </div>
         <h3>Вероятности</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
       <a class="resource-card hover-emerald" href="testove/">
@@ -322,6 +339,7 @@
           </svg>
         </div>
         <h3>Тестове</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
     </section>
@@ -334,6 +352,13 @@
   <footer>
     Математика с Валя Витковска
   </footer>
+
+  <script>
+    document.querySelectorAll('.resource-count').forEach(el => {
+      const count = Number(el.dataset.count || 0);
+      el.textContent = count === 1 ? '1 ресурс' : `${count} ресурса`;
+    });
+  </script>
 
 </body>
 </html>
