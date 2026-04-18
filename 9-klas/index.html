@@ -208,15 +208,16 @@
     .resource-count {
       position: relative;
       z-index: 1;
-      margin-top: 10px;
       display: inline-block;
-      padding: 5px 11px;
+      margin-top: 10px;
+      padding: 5px 10px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      background: rgba(219, 234, 254, 0.95);
-      color: #1d4ed8;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+      white-space: nowrap;
+      background: rgba(219, 234, 254, 0.92);
+      color: #1e3a8a;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
 
     .card-footer {
@@ -500,6 +501,7 @@
         <span class="badge">Вероятности</span>
         <h3>Класическа вероятност</h3>
         <p>Събития, вероятности и действия със събития.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -520,6 +522,7 @@
         <span class="badge">Графики</span>
         <h3>Функции</h3>
         <p>Графики, свойства и представяне на зависимости.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -541,6 +544,7 @@
         <span class="badge">Уравнения</span>
         <h3>Системи линейни уравнения с две неизвестни</h3>
         <p>Решаване чрез заместване, събиране и графичен подход.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -562,6 +566,7 @@
         <span class="badge">Системи</span>
         <h3>Системи уравнения от втора степен с две неизвестни</h3>
         <p>Системи, в които едното или и двете уравнения са от втора степен.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -581,6 +586,7 @@
         <span class="badge">Геометрия</span>
         <h3>Подобни триъгълници</h3>
         <p>Пропорционални отсечки, теорема на Талес и признаци за подобие.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -590,7 +596,7 @@
         </span>
       </a>
 
-      <a class="resource-card theme-blue" href="ratsionalni-neravenstva/" data-count-from="ratsionalni-neravenstva/">
+      <a class="resource-card theme-blue" href="ratsionalni-neravenstva/">
         <div class="icon-wrap" aria-hidden="true">
           <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M8 7h8"></path>
@@ -601,7 +607,7 @@
         <span class="badge">Неравенства</span>
         <h3>Рационални неравенства</h3>
         <p>Линейни, квадратни и дробни неравенства с метода на интервалите.</p>
-        <span class="resource-count">Зареждане...</span>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -622,6 +628,7 @@
         <span class="badge">Метрични зависимости</span>
         <h3>Метрични зависимости между отсечки</h3>
         <p>Теорема на Питагор и зависимости в правоъгълен триъгълник.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -643,6 +650,7 @@
         <span class="badge">Тригонометрия</span>
         <h3>Тригонометрични функции на остър ъгъл</h3>
         <p>Синус, косинус, тангенс и котангенс в правоъгълен триъгълник.</p>
+        <span class="resource-count" data-count="0"></span>
         <span class="card-footer">
           Отвори раздела
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -665,35 +673,9 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const cards = document.querySelectorAll(".resource-card[data-count-from]");
-
-      function formatCount(count) {
-        return count === 1 ? "1 ресурс" : count + " ресурса";
-      }
-
-      for (const card of cards) {
-        const url = card.getAttribute("data-count-from");
-        const countEl = card.querySelector(".resource-count");
-
-        if (!url || !countEl) continue;
-
-        try {
-          const response = await fetch(url, { cache: "no-store" });
-          if (!response.ok) throw new Error("Неуспешно зареждане на " + url);
-
-          const html = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-
-          const count = doc.querySelectorAll(".resource-grid .resource-card").length;
-
-          countEl.textContent = formatCount(count);
-        } catch (error) {
-          countEl.textContent = "Няма данни";
-          console.error("Грешка при броене на ресурси:", error);
-        }
-      }
+    document.querySelectorAll('.resource-count').forEach(el => {
+      const count = Number(el.dataset.count || 0);
+      el.textContent = count === 1 ? '1 ресурс' : `${count} ресурса`;
     });
   </script>
 
