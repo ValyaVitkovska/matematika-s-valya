@@ -6,9 +6,7 @@
   <title>8. клас</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -20,25 +18,45 @@
     }
 
     header {
-      background-image: linear-gradient(rgba(59, 91, 219, 0.70), rgba(147, 51, 234, 0.60)), url("bg-8klas.png");
+      background-image:
+        linear-gradient(rgba(59, 91, 219, 0.68), rgba(147, 51, 234, 0.55)),
+        url("bg-8klas.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       color: white;
       text-align: center;
       padding: 55px 20px 45px;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: 0 8px 24px rgba(80, 60, 140, 0.18);
     }
 
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.2rem;
+    .hero-content {
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      backdrop-filter: blur(2px);
     }
 
-    header p {
+    .hero-content h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.22);
+    }
+
+    .hero-content p {
       margin: 0;
-      font-size: 1.05rem;
-      opacity: 0.96;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.18);
     }
 
     .container {
@@ -66,51 +84,64 @@
 
     .resource-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
     }
 
     .resource-card {
       --hover-tint: rgba(219, 234, 254, 0.45);
       --hover-border: #93c5fd;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(255,255,255,0.7);
-      border-radius: 22px;
-      padding: 18px 14px;
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 20px;
+      padding: 16px 12px;
       text-decoration: none;
       color: #1e293b;
-      box-shadow: 0 10px 24px rgba(120, 110, 150, 0.10);
+      box-shadow: 0 10px 24px rgba(109, 117, 141, 0.10);
+      backdrop-filter: blur(10px);
       transition:
         transform 0.22s ease,
         box-shadow 0.22s ease,
         border-color 0.22s ease,
         background 0.22s ease;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      min-height: 165px;
+      min-height: 145px;
       justify-content: flex-start;
-      backdrop-filter: blur(10px);
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--hover-tint) 0%, transparent 34%);
+      opacity: 0.75;
+      pointer-events: none;
     }
 
     .resource-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 30px rgba(110, 98, 146, 0.14);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(109, 117, 141, 0.14);
       border-color: var(--hover-border);
       background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, var(--hover-tint) 100%);
     }
 
     .icon-wrap {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+      position: relative;
+      z-index: 1;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.65),
         0 8px 18px rgba(0,0,0,0.10);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -118,29 +149,32 @@
     .resource-card:hover .icon-wrap {
       transform: scale(1.06);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.65),
+        inset 0 1px 0 rgba(255,255,255,0.70),
         0 10px 20px rgba(0,0,0,0.13);
     }
 
     .icon-svg {
-      width: 27px;
-      height: 27px;
+      width: 24px;
+      height: 24px;
       stroke: currentColor;
       fill: none;
-      stroke-width: 2.1;
+      stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      flex-shrink: 0;
     }
 
     .resource-card h3 {
+      position: relative;
+      z-index: 1;
       margin: 0;
-      color: #2563eb;
-      font-size: 1.05rem;
-      line-height: 1.3;
+      font-size: 1rem;
+      line-height: 1.25;
+      font-weight: 800;
     }
 
     .resource-count {
+      position: relative;
+      z-index: 1;
       display: inline-block;
       margin-top: 10px;
       padding: 5px 10px;
@@ -153,99 +187,49 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
 
-    .icon-violet {
-      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-      color: #7c3aed;
-    }
+    .theme-blue { --hover-tint: rgba(219, 234, 254, 0.86); --hover-border: #93c5fd; }
+    .theme-blue .icon-wrap { background: linear-gradient(135deg, #dbeafe, #c7d2fe); color: #2563eb; }
+    .theme-blue h3 { color: #2563eb; }
 
-    .icon-cyan {
-      background: linear-gradient(135deg, #cffafe, #a5f3fc);
-      color: #0891b2;
-    }
+    .theme-violet { --hover-tint: rgba(237, 233, 254, 0.88); --hover-border: #c4b5fd; }
+    .theme-violet .icon-wrap { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #7c3aed; }
+    .theme-violet h3 { color: #7c3aed; }
 
-    .icon-green {
-      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-      color: #16a34a;
-    }
+    .theme-cyan { --hover-tint: rgba(207, 250, 254, 0.88); --hover-border: #67e8f9; }
+    .theme-cyan .icon-wrap { background: linear-gradient(135deg, #cffafe, #a5f3fc); color: #0891b2; }
+    .theme-cyan h3 { color: #0891b2; }
 
-    .icon-orange {
-      background: linear-gradient(135deg, #ffedd5, #fed7aa);
-      color: #ea580c;
-    }
+    .theme-green { --hover-tint: rgba(220, 252, 231, 0.88); --hover-border: #86efac; }
+    .theme-green .icon-wrap { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #16a34a; }
+    .theme-green h3 { color: #16a34a; }
 
-    .icon-pink {
-      background: linear-gradient(135deg, #fce7f3, #fbcfe8);
-      color: #db2777;
-    }
+    .theme-orange { --hover-tint: rgba(255, 237, 213, 0.88); --hover-border: #fdba74; }
+    .theme-orange .icon-wrap { background: linear-gradient(135deg, #ffedd5, #fed7aa); color: #ea580c; }
+    .theme-orange h3 { color: #ea580c; }
 
-    .icon-yellow {
-      background: linear-gradient(135deg, #fef9c3, #fde68a);
-      color: #ca8a04;
-    }
+    .theme-pink { --hover-tint: rgba(252, 231, 243, 0.88); --hover-border: #f9a8d4; }
+    .theme-pink .icon-wrap { background: linear-gradient(135deg, #fce7f3, #fbcfe8); color: #db2777; }
+    .theme-pink h3 { color: #db2777; }
 
-    .icon-teal {
-      background: linear-gradient(135deg, #ccfbf1, #99f6e4);
-      color: #0f766e;
-    }
+    .theme-yellow { --hover-tint: rgba(254, 249, 195, 0.88); --hover-border: #fde047; }
+    .theme-yellow .icon-wrap { background: linear-gradient(135deg, #fef9c3, #fde68a); color: #ca8a04; }
+    .theme-yellow h3 { color: #ca8a04; }
 
-    .icon-red {
-      background: linear-gradient(135deg, #fee2e2, #fecaca);
-      color: #dc2626;
-    }
+    .theme-teal { --hover-tint: rgba(204, 251, 241, 0.88); --hover-border: #5eead4; }
+    .theme-teal .icon-wrap { background: linear-gradient(135deg, #ccfbf1, #99f6e4); color: #0f766e; }
+    .theme-teal h3 { color: #0f766e; }
 
-    .icon-emerald {
-      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-      color: #059669;
-    }
+    .theme-red { --hover-tint: rgba(254, 226, 226, 0.88); --hover-border: #fca5a5; }
+    .theme-red .icon-wrap { background: linear-gradient(135deg, #fee2e2, #fecaca); color: #dc2626; }
+    .theme-red h3 { color: #dc2626; }
 
-    .hover-violet {
-      --hover-tint: rgba(237, 233, 254, 0.7);
-      --hover-border: #c4b5fd;
-    }
-
-    .hover-cyan {
-      --hover-tint: rgba(207, 250, 254, 0.7);
-      --hover-border: #67e8f9;
-    }
-
-    .hover-green {
-      --hover-tint: rgba(220, 252, 231, 0.72);
-      --hover-border: #86efac;
-    }
-
-    .hover-orange {
-      --hover-tint: rgba(255, 237, 213, 0.78);
-      --hover-border: #fdba74;
-    }
-
-    .hover-pink {
-      --hover-tint: rgba(252, 231, 243, 0.78);
-      --hover-border: #f9a8d4;
-    }
-
-    .hover-yellow {
-      --hover-tint: rgba(254, 249, 195, 0.82);
-      --hover-border: #fde047;
-    }
-
-    .hover-teal {
-      --hover-tint: rgba(204, 251, 241, 0.78);
-      --hover-border: #5eead4;
-    }
-
-    .hover-red {
-      --hover-tint: rgba(254, 226, 226, 0.78);
-      --hover-border: #fca5a5;
-    }
-
-    .hover-emerald {
-      --hover-tint: rgba(209, 250, 229, 0.78);
-      --hover-border: #6ee7b7;
-    }
+    .theme-emerald { --hover-tint: rgba(209, 250, 229, 0.88); --hover-border: #6ee7b7; }
+    .theme-emerald .icon-wrap { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #059669; }
+    .theme-emerald h3 { color: #059669; }
 
     .back-link {
       text-align: center;
-      margin-top: 35px;
+      margin-top: 34px;
     }
 
     .back-link a {
@@ -255,7 +239,7 @@
       color: #2563eb;
       padding: 12px 22px;
       border-radius: 14px;
-      font-weight: bold;
+      font-weight: 700;
       border: 1px solid rgba(255,255,255,0.7);
       box-shadow: 0 8px 18px rgba(120, 110, 150, 0.10);
       backdrop-filter: blur(8px);
@@ -270,37 +254,51 @@
 
     footer {
       text-align: center;
-      padding: 28px 20px 40px;
+      padding: 30px 20px 42px;
       color: #5b6477;
       font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
+    @media (max-width: 700px) {
+      header {
+        min-height: 220px;
+        padding: 50px 18px 36px;
+      }
+
+      .hero-content {
+        padding: 10px 14px;
+        border-radius: 18px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 0 16px;
       }
 
       .intro,
       .resource-card {
-        padding: 18px 14px;
+        border-radius: 20px;
+      }
+
+      .intro {
+        padding: 22px 18px;
+      }
+
+      .resource-card {
+        padding: 16px 12px;
+        min-height: 138px;
       }
 
       .icon-wrap {
-        width: 50px;
-        height: 50px;
-      }
-
-      .icon-svg {
-        width: 25px;
-        height: 25px;
-      }
-
-      .resource-card h3 {
-        font-size: 1rem;
+        width: 46px;
+        height: 46px;
       }
 
       .resource-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       }
     }
   </style>
@@ -308,20 +306,22 @@
 <body>
 
   <header>
-    <h1>8. клас</h1>
-    <p>Уроци, тренажори и преговор</p>
+    <div class="hero-content">
+      <h1>8. клас</h1>
+      <p>Интерактивни ресурси по теми</p>
+    </div>
   </header>
 
   <div class="container">
     <section class="intro">
-      <h2>Избери ресурс</h2>
+      <h2>Избери тема</h2>
     </section>
 
     <section class="resource-grid">
 
-      <a class="resource-card hover-violet" href="#">
-        <div class="icon-wrap icon-violet">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-violet" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <circle cx="6" cy="6" r="2"></circle>
             <circle cx="18" cy="6" r="2"></circle>
             <circle cx="12" cy="18" r="2"></circle>
@@ -331,82 +331,89 @@
           </svg>
         </div>
         <h3>Основни комбинаторни понятия</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-cyan" href="#">
-        <div class="icon-wrap icon-cyan">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-cyan" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M4 18L18 6"></path>
             <path d="M13 6h5v5"></path>
           </svg>
         </div>
         <h3>Вектори</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-green" href="#">
-        <div class="icon-wrap icon-green">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-green" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M4 18l4-8 4 8z"></path>
             <path d="M13 18l2-8h4l2 8z"></path>
           </svg>
         </div>
         <h3>Триъгълник и трапец</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-orange" href="#">
-        <div class="icon-wrap icon-orange">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-orange" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M3 13h4l2 6 5-14h7"></path>
           </svg>
         </div>
         <h3>Квадратен корен</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-pink" href="#">
-        <div class="icon-wrap icon-pink">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-pink" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M5 19h15"></path>
             <path d="M8 19V5"></path>
             <path d="M8 8Q12 18 16 8"></path>
           </svg>
         </div>
         <h3>Квадратни уравнения</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-yellow" href="okrazhnost/">
-        <div class="icon-wrap icon-yellow">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-yellow" href="okrazhnost/">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="7"></circle>
           </svg>
         </div>
         <h3>Окръжност</h3>
-        <span class="resource-count">2 ресурса</span>
+        <span class="resource-count" data-count="2"></span>
       </a>
 
-      <a class="resource-card hover-teal" href="#">
-        <div class="icon-wrap icon-teal">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-teal" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <path d="M8 7h8"></path>
             <path d="M6 12h12"></path>
             <path d="M8 17h8"></path>
           </svg>
         </div>
         <h3>Рационални изрази</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-red" href="#">
-        <div class="icon-wrap icon-red">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-red" href="#">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="8"></circle>
             <path d="M12 6l4.5 2.5v5L12 16l-4.5-2.5v-5z"></path>
           </svg>
         </div>
         <h3>Вписани и описани многоъгълници</h3>
+        <span class="resource-count" data-count="0"></span>
       </a>
 
-      <a class="resource-card hover-emerald" href="testove/">
-        <div class="icon-wrap icon-emerald">
-          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <a class="resource-card theme-emerald" href="testove/">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
             <rect x="4" y="3" width="16" height="18" rx="2"></rect>
             <path d="M8 7h8"></path>
             <path d="M8 11h8"></path>
@@ -415,6 +422,7 @@
           </svg>
         </div>
         <h3>Тестове</h3>
+        <span class="resource-count" data-count="4"></span>
       </a>
 
     </section>
@@ -427,6 +435,13 @@
   <footer>
     Математика с Валя Витковска
   </footer>
+
+  <script>
+    document.querySelectorAll('.resource-count').forEach(el => {
+      const count = Number(el.dataset.count || 0);
+      el.textContent = count === 1 ? '1 ресурс' : `${count} ресурса`;
+    });
+  </script>
 
 </body>
 </html>
