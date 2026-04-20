@@ -1,1 +1,304 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метрични зависимости | 9. клас</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 28%),
+        linear-gradient(180deg, #f8f4ff 0%, #fdf8f3 52%, #f7fbff 100%);
+      color: #1e293b;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(37,99,235,0.82), rgba(124,58,237,0.78));
+      color: white;
+      text-align: center;
+      padding: 54px 20px 42px;
+      box-shadow: 0 8px 24px rgba(80, 60, 140, 0.18);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.1rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.96;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 22px;
+      padding: 24px 22px;
+      box-shadow: 0 10px 26px rgba(109, 117, 141, 0.10);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .intro h2 {
+      margin: 0 0 10px;
+      color: #2563eb;
+      font-size: 1.45rem;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.97rem;
+      line-height: 1.55;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .resource-card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 22px;
+      padding: 18px 16px 18px;
+      text-decoration: none;
+      color: #1e293b;
+      box-shadow: 0 10px 24px rgba(109, 117, 141, 0.10);
+      backdrop-filter: blur(8px);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 170px;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(109, 117, 141, 0.14);
+      border-color: #bfdbfe;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(239,246,255,0.92) 100%);
+    }
+
+    .icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #dbeafe, #c7d2fe);
+      color: #2563eb;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.7),
+        0 8px 16px rgba(37,99,235,0.10);
+    }
+
+    .icon-svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      background: rgba(219, 234, 254, 0.96);
+      color: #1d4ed8;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.28;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    .resource-card p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      max-width: 260px;
+    }
+
+    .card-footer {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 700;
+      font-size: 0.93rem;
+      color: #2563eb;
+    }
+
+    .card-footer svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .resource-card:hover .card-footer svg {
+      transform: translateX(3px);
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .back-link a {
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255,255,255,0.88);
+      color: #2563eb;
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: 0 8px 18px rgba(120, 110, 150, 0.10);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .back-link a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(120, 110, 150, 0.14);
+      background: rgba(255,255,255,0.96);
+    }
+
+    footer {
+      text-align: center;
+      padding: 26px 20px 36px;
+      color: #5b6477;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .intro,
+      .resource-card {
+        border-radius: 20px;
+      }
+
+      .intro {
+        padding: 20px 16px;
+      }
+
+      .resource-card {
+        min-height: 160px;
+        padding: 16px 14px;
+      }
+
+      .resource-card h3 {
+        font-size: 0.96rem;
+      }
+
+      .resource-card p,
+      .intro p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Метрични зависимости</h1>
+    <p>Ресурси по математика за 9. клас</p>
+  </header>
+
+  <div class="container">
+
+    <section class="intro">
+      <h2>Избери ресурс</h2>
+      <p>
+        Тук ще бъдат публикувани уроци и интерактивни ресурси,
+        свързани с метричните зависимости между отсечки в правоъгълен триъгълник.
+      </p>
+    </section>
+
+    <section class="resource-grid">
+
+      <a class="resource-card" href="https://valyavitkovska.github.io/metrichni.zavisimosti.v.prvoagalen.triagalnik/" target="_blank" rel="noopener noreferrer">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M4 19h16"></path>
+            <path d="M6 16l4-6 4 3 4-7"></path>
+            <path d="M6 19V9"></path>
+            <path d="M18 19V5"></path>
+          </svg>
+        </div>
+        <span class="badge">Урок</span>
+        <h3>Метрични зависимости в правоъгълен триъгълник</h3>
+        <p>Интерактивен урок с визуализации, чертежи и задачи за разбиране и прилагане на основните зависимости.</p>
+        <span class="card-footer">
+          Отвори ресурса
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 6l6 6-6 6"></path>
+          </svg>
+        </span>
+      </a>
+
+    </section>
+
+    <div class="back-link">
+      <a href="../">← Обратно към 9. клас</a>
+    </div>
+
+  </div>
+
+  <footer>
+    Математика с Валя Витковска
+  </footer>
+
+</body>
+</html>
