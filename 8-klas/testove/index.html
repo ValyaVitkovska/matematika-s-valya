@@ -61,7 +61,7 @@
 
     .test-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr;
       gap: 18px;
     }
 
@@ -72,14 +72,7 @@
       padding: 22px 18px;
       box-shadow: 0 10px 24px rgba(120, 110, 150, 0.10);
       backdrop-filter: blur(10px);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
       text-align: center;
-    }
-
-    .test-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 30px rgba(110, 98, 146, 0.14);
-      border-color: #a7f3d0;
     }
 
     .icon-wrap {
@@ -111,20 +104,29 @@
     .test-card h3 {
       margin: 0 0 10px;
       color: #2563eb;
-      font-size: 1.08rem;
+      font-size: 1.15rem;
       line-height: 1.3;
     }
 
     .test-card p {
-      margin: 0 0 16px;
+      margin: 0 0 18px;
       color: #475569;
       font-size: 0.97rem;
       line-height: 1.45;
-      min-height: 44px;
     }
 
-    .pdf-btn {
+    .pdf-frame {
+      width: 100%;
+      height: 720px;
+      border: 1px solid #d1d5db;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(120, 110, 150, 0.10);
+    }
+
+    .pdf-link {
       display: inline-block;
+      margin-top: 14px;
       text-decoration: none;
       padding: 11px 18px;
       border-radius: 14px;
@@ -132,12 +134,6 @@
       color: white;
       background: linear-gradient(135deg, #10b981, #2563eb);
       box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .pdf-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 22px rgba(37, 99, 235, 0.24);
     }
 
     .back-link {
@@ -156,13 +152,6 @@
       border: 1px solid rgba(255,255,255,0.7);
       box-shadow: 0 8px 18px rgba(120, 110, 150, 0.10);
       backdrop-filter: blur(8px);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .back-link a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 22px rgba(120, 110, 150, 0.14);
-      background: rgba(255,255,255,0.96);
     }
 
     footer {
@@ -180,8 +169,8 @@
         padding: 18px 14px;
       }
 
-      .test-grid {
-        grid-template-columns: 1fr;
+      .pdf-frame {
+        height: 560px;
       }
     }
   </style>
@@ -210,14 +199,18 @@
             <path d="M8 15h5"></path>
           </svg>
         </div>
+
         <h3>Окръжност и ъгъл</h3>
         <p>Работен лист / тест по темата „Окръжност и ъгъл“.</p>
+
         <iframe
-  src="okrajnost-i-agal.pdf"
-  width="100%"
-  height="650"
-  style="border: 1px solid #d1d5db; border-radius: 16px; background: white;">
-</iframe>
+          class="pdf-frame"
+          src="https://docs.google.com/gview?url=https://valyavitkovska.github.io/matematika-s-valya/8-klas/testove/okrajnost-i-agal.pdf&embedded=true">
+        </iframe>
+
+        <a class="pdf-link" href="https://docs.google.com/gview?url=https://valyavitkovska.github.io/matematika-s-valya/8-klas/testove/okrajnost-i-agal.pdf" target="_blank">
+          Отвори PDF на цял екран
+        </a>
       </div>
 
     </section>
