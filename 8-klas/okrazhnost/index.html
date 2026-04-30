@@ -248,6 +248,30 @@
       color: #2563eb;
     }
 
+    .circle-game {
+      --card-accent: #f59e0b;
+      --card-accent-soft: rgba(254, 243, 199, 0.88);
+      --card-border: #fbbf24;
+    }
+
+    .circle-game .lesson-icon {
+      background: linear-gradient(135deg, #fef3c7, #fed7aa);
+      color: #d97706;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.65),
+        0 10px 20px rgba(245, 158, 11, 0.14);
+    }
+
+    .circle-game .lesson-badge {
+      background: rgba(254, 243, 199, 0.96);
+      color: #b45309;
+    }
+
+    .circle-game .lesson-title,
+    .circle-game .lesson-link {
+      color: #d97706;
+    }
+
     .back-link {
       text-align: center;
       margin-top: 34px;
@@ -320,6 +344,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -327,14 +352,15 @@
     <p>Интерактивни ресурси по математика за 8. клас</p>
   </header>
 
-  <div class="container">
+  <main class="container">
     <section class="intro">
       <h2>Избери ресурс</h2>
       <p>Тук ще намериш уроци с динамични чертежи, визуализации и възможности за изследване на зависимости в окръжността.</p>
     </section>
 
     <section class="resources-grid">
-      <a class="lesson-card circle-1" href="https://valyavitkovska.github.io/2okrajnosti-polojenie-dopiratelni/">
+
+      <a class="lesson-card circle-1" href="https://valyavitkovska.github.io/2okrajnosti-polojenie-dopiratelni/" target="_blank" rel="noopener noreferrer">
         <div class="lesson-card-head">
           <div class="lesson-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -343,6 +369,7 @@
               <path d="M3 12h18"></path>
             </svg>
           </div>
+
           <div class="lesson-meta">
             <span class="lesson-badge">Интерактивен урок</span>
             <h2 class="lesson-title">Взаимно положение на две окръжности. Общи допирателни.</h2>
@@ -364,7 +391,7 @@
         </div>
       </a>
 
-      <a class="lesson-card circle-2" href="https://valyavitkovska.github.io/okrajnost-agal/">
+      <a class="lesson-card circle-2" href="https://valyavitkovska.github.io/okrajnost-agal/" target="_blank" rel="noopener noreferrer">
         <div class="lesson-card-head">
           <div class="lesson-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -394,44 +421,29 @@
           </span>
         </div>
       </a>
-        <a class="lesson-card circle-2" href="https://valyavitkovska.github.io/okrajnost-igra/">
+
+      <a class="lesson-card circle-game" href="https://valyavitkovska.github.io/okrajnost-igra/" target="_blank" rel="noopener noreferrer">
         <div class="lesson-card-head">
           <div class="lesson-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="7"></circle>
-              <path d="M12 12l5-2"></path>
-              <path d="M12 12l3.5 4"></path>
+              <path d="M8 12h8"></path>
+              <path d="M12 8v8"></path>
+              <path d="M5 5l3 3"></path>
+              <path d="M19 5l-3 3"></path>
             </svg>
           </div>
 
           <div class="lesson-meta">
             <span class="lesson-badge">Игра</span>
-            <h2 class="lesson-title">Окръжност - игра</h2>
+            <h2 class="lesson-title">Окръжност — игра</h2>
           </div>
         </div>
 
         <p class="lesson-desc">
-          Интерактивна игра с чертежи за изследване на различните видове ъгли в окръжност и връзките между тях.
+          Интерактивна игра с чертежи за упражнение върху основни зависимости в окръжност.
         </p>
- <a class="lesson-card circle-2"https://valyavitkovska.github.io/okrajnost-i-agal-igra/">
-        <div class="lesson-card-head">
-          <div class="lesson-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="7"></circle>
-              <path d="M12 12l5-2"></path>
-              <path d="M12 12l3.5 4"></path>
-            </svg>
-          </div>
 
-          <div class="lesson-meta">
-            <span class="lesson-badge">Игра</span>
-            <h2 class="lesson-title">Окръжност и ъгъл - игра</h2>
-          </div>
-        </div>
-
-        <p class="lesson-desc">
-          Интерактивна игра за 3 отбора с чертежи за изследване на различните видове ъгли в окръжност и връзките между тях.
-        </p>
         <div class="lesson-footer">
           <span class="lesson-link">
             Отвори ресурса
@@ -442,12 +454,46 @@
           </span>
         </div>
       </a>
+
+      <a class="lesson-card circle-game" href="https://valyavitkovska.github.io/okrajnost-i-agal-igra/" target="_blank" rel="noopener noreferrer">
+        <div class="lesson-card-head">
+          <div class="lesson-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="7"></circle>
+              <path d="M12 12l5-2"></path>
+              <path d="M12 12l3.5 4"></path>
+              <path d="M4 19l3-3"></path>
+              <path d="M20 19l-3-3"></path>
+            </svg>
+          </div>
+
+          <div class="lesson-meta">
+            <span class="lesson-badge">Игра за 3 отбора</span>
+            <h2 class="lesson-title">Окръжност и ъгъл — геометрична надпревара</h2>
+          </div>
+        </div>
+
+        <p class="lesson-desc">
+          Интерактивна отборна игра с чертежи за упражнение върху различните видове ъгли в окръжност и връзките между тях.
+        </p>
+
+        <div class="lesson-footer">
+          <span class="lesson-link">
+            Отвори ресурса
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="M13 6l6 6-6 6"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
+
     </section>
 
     <div class="back-link">
       <a href="../">← Обратно към 8. клас</a>
     </div>
-  </div>
+  </main>
 
   <footer>
     Математика с Валя Витковска
