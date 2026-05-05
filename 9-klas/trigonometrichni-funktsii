@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тригонометрични функции – 9. клас</title>
 
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0) 34%),
+        linear-gradient(180deg, #eef2ff 0%, #f8fafc 50%, #eff6ff 100%);
+      color: #1e293b;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 56px 20px 42px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.24), transparent 36%),
+        linear-gradient(135deg, #2563eb, #4338ca);
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.22);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 850;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 650;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 38px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(67, 56, 202, 0.10);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      color: #2563eb;
+      font-size: 1.65rem;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #475569;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+    }
+
+    .lesson-card {
+      display: block;
+      text-decoration: none;
+      color: #1e293b;
+      background: rgba(255,255,255,0.90);
+      border: 1px solid rgba(191, 219, 254, 0.92);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 26px rgba(100, 116, 139, 0.12);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 250px;
+    }
+
+    .lesson-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(59,130,246,0.18), transparent 38%);
+      pointer-events: none;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(100, 116, 139, 0.16);
+      border-color: #60a5fa;
+    }
+
+    .icon {
+      position: relative;
+      z-index: 1;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #dbeafe, #c7d2fe);
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 18px rgba(37, 99, 235, 0.14);
+    }
+
+    .icon svg {
+      width: 31px;
+      height: 31px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lesson-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 10px;
+      color: #1d4ed8;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    .lesson-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: #475569;
+      line-height: 1.52;
+      font-size: 1rem;
+    }
+
+    .badge {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 850;
+      font-size: 0.92rem;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    .back-link a {
+      display: inline-block;
+      text-decoration: none;
+      background: white;
+      color: #2563eb;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(120, 110, 150, 0.12);
+      border: 1px solid #dbeafe;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-link a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(120, 110, 150, 0.16);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 40px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 46px 18px 36px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .intro {
+        padding: 22px 18px;
+      }
+
+      .lesson-card {
+        border-radius: 22px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Тригонометрични функции</h1>
+    <p>9. клас</p>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Уроци и интерактивни ресурси</h2>
+      <p>Избери ресурс, за да отвориш интерактивния урок.</p>
+    </section>
+
+    <section class="lesson-grid">
+
+      <a class="lesson-card" href="https://valyavitkovska.github.io/trigonometrichni-funkcii-na-ostar-agal/" target="_blank" rel="noopener">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 18h16"></path>
+            <path d="M4 18l8-12 8 12"></path>
+            <path d="M8 18v-4h4"></path>
+          </svg>
+        </div>
+        <h3>Тригонометрични функции на остър ъгъл</h3>
+        <p>Интерактивен урок със симулация, теория, тест и практически задачи за синус, косинус, тангенс и котангенс.</p>
+        <span class="badge">Отвори урока</span>
+      </a>
+
+    </section>
+
+    <div class="back-link">
+      <a href="../">← Обратно към 9. клас</a>
+    </div>
+  </main>
+
+  <footer>
+    Математика с Валя Витковска
+  </footer>
+
+</body>
+</html>
