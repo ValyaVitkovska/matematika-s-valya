@@ -45,19 +45,20 @@
     header {
       position: relative;
       background:
-        linear-gradient(rgba(255,255,255,0.10), rgba(255,255,255,0.10)),
+        linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.07)),
         url("home-bg.png");
       background-size: cover;
-      background-position: center top;
+      background-position: center;
       background-repeat: no-repeat;
       color: #1e3a8a;
       text-align: center;
-      padding: 120px 20px 92px;
-      min-height: 600px;
+      min-height: auto;
+      aspect-ratio: 16 / 7;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 10px 28px rgba(80, 60, 140, 0.18);
+      overflow: hidden;
     }
 
     header::before {
@@ -66,9 +67,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.04),
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.12)
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.10)
       );
       pointer-events: none;
     }
@@ -79,7 +80,7 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 18px 22px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 24px;
       backdrop-filter: blur(2px);
@@ -93,7 +94,7 @@
       line-height: 1.7;
       color: #334155;
       font-weight: 600;
-      text-shadow: 0 1px 8px rgba(255,255,255,0.28);
+      text-shadow: 0 1px 8px rgba(255,255,255,0.35);
     }
 
     .container {
@@ -386,19 +387,19 @@
 
     @media (max-width: 700px) {
       header {
-        min-height: 460px;
-        padding: 72px 18px 48px;
-        background-position: center top;
+        aspect-ratio: 16 / 10;
+        background-position: center;
       }
 
       .hero-content {
-        padding: 16px 14px;
+        padding: 14px 14px;
         border-radius: 20px;
-        background: rgba(255,255,255,0.04);
+        background: rgba(255,255,255,0.08);
       }
 
       .hero-content p {
         font-size: 0.98rem;
+        line-height: 1.55;
       }
 
       .container {
